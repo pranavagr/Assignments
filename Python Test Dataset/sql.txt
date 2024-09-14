@@ -1,0 +1,92 @@
+SELECT *
+FROM smartphones where model=='Itel A24 Pro'
+
+
+select distinct screen_size from smartphones
+
+
+SELECT model, MAX(SQRT(SQUARE(resolution_width) + SQUARE(resolution_height)) / screen_size) AS highest_ppi
+FROM smartphones;
+
+SELECT model
+FROM smartphones
+ORDER BY (SQRT(SQUARE(resolution_width) + SQUARE(resolution_height)) / screen_size) ASC
+LIMIT 1;
+
+
+SELECT brand_name, ROUND(AVG(price), 2) AS average_price
+FROM smartphones
+WHERE has_5g = 1
+GROUP BY brand_name
+HAVING AVG(rating) > 70 AND COUNT(model) > 10
+ORDER BY average_price DESC
+LIMIT 1;
+
+---Multiple Answer
+SELECT model, price, screen_size
+FROM smartphones
+WHERE brand_name = 'samsung'
+ORDER BY screen_size DESC
+LIMIT 1;
+
+--Correct ans
+SELECT ROUND(AVG(price), 0) AS average_price
+FROM smartphones
+WHERE brand_name = 'samsung'
+AND has_5g = 1
+AND has_nfc = 1;
+
+---------------
+
+SELECT *
+FROM smartphones where model=='Itel A24 Pro';
+select distinct screen_size from smartphones
+
+
+SELECT model, MAX(SQRT(SQUARE(resolution_width) + SQUARE(resolution_height)) / screen_size) AS highest_ppi
+FROM smartphones;
+
+SELECT model
+FROM smartphones
+ORDER BY (SQRT(SQUARE(resolution_width) + SQUARE(resolution_height)) / screen_size) ASC
+LIMIT 1;
+
+
+
+SELECT brand_name, ROUND(AVG(price), 2) AS average_price
+FROM smartphones
+WHERE has_5g = 1
+GROUP BY brand_name
+HAVING AVG(rating) > 70 AND COUNT(model) > 10
+ORDER BY average_price DESC
+LIMIT 1;
+
+
+
+
+SELECT model, price, screen_size
+FROM smartphones
+WHERE brand_name = 'samsung'
+ORDER BY screen_size DESC
+LIMIT 1;
+
+SELECT brand_name, *
+--ROUND(AVG(price), 0) AS average_price
+FROM smartphones
+WHERE brand_name = 'samsung'
+AND has_5g = 1
+AND has_nfc = 1;
+
+SELECT brand_name, model, price, screen_size
+FROM smartphones
+--WHERE brand_name = 'samsung'
+ORDER BY screen_size DESC
+LIMIT 1;
+
+
+SELECT brand_name, ROUND(AVG(price), 0) AS average_price, has_5g, has_nfc
+FROM smartphones
+WHERE  has_5g = 1
+AND has_nfc = 1 
+group by brand_name;
+= 'samsung';
